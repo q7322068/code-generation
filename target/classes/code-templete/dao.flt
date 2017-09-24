@@ -1,8 +1,0 @@
-package ${packagePath}.dao;
-
-import com.hexun.bdc.base.component.common.BaseDao;
-import ${packagePath}.domain.${item.modleName};
-
-public interface ${item.modleName}Dao extends BaseDao<${item.modleName}, ${item.idType}>{
-
-}
