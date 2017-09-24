@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+ <html xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:th="http://www.thymeleaf.org" 
+    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <title>code-generator</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+  <h1>Table list</h1>
+
+  <table>
+    <form action="#"  th:action="@{/setProperty}"  th:object="${settingobject}"  method="post" target="_blank" commandName="settingobject">    
+    <p>要生成代码的项目的路径<input type="text" name="projectPath" th:field="*{projectPath}"/></p>
+    <p>要生成代码的项目的包的根路径<input type="text" name="packagePath" th:field="*{packagePath}" /></p>
+    <p>请选择 本项目内代码模板路径
+    <select th:each="String : ${templatelist}" name="templetePath" th:field="*{templetePath}">
+    <option th:value ="${String}" th:text="${String}"></option>
+    </select>
+    </p>
+    <input type="submit"  value="设置提交"/> 
+    </form>
+    <form action="#" th:action="@{/tables}"  method="post" target="_blank">    
+    <ul>
+          <input type="checkbox" name="allChecked" id="allChecked" onclick="DoCheck()"/>全选/取消
+          <li th:each="String : ${tablelist}">
+            <input type="checkbox"  th:text="${String}"  th:value="${String}"  name="choose"></input>
+          </li>
+    </ul>
+          <input type="submit"  value="选中提交"/>    
+    </form>
+  </table>
+
+ <!--  <p>
+    <a href="../home.html" th:href="@{/}">Return to home</a>
+  </p> -->
+</body>
+<!-- <script type="text/javascript">
+function DoCheck()
+{
+var ch=document.getElementsByName("choose");
+if(document.getElementsByName("allChecked")[0].checked==true)
+{
+for(var i=0;i<ch.length;i++)
+{
+ch[i].checked=true;
+}
+}else{
+for(var i=0;i<ch.length;i++)
+{
+ch[i].checked=false;
+}
+}
+}
+</script> -->
+</html>

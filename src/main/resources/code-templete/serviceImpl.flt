@@ -1,0 +1,26 @@
+package ${packagePath}.service.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.hexun.bdc.base.component.common.BaseDao;
+import ${packagePath}.component.common.BaseServiceImpl;
+import ${packagePath}.dao.${item.modleName}Dao;
+import ${packagePath}.domain.${item.modleName};
+import ${packagePath}.service.${item.modleName}Service;
+
+/**
+ *${item.tableComment}
+ */
+@Service("${modelParam}Service")
+public class ${item.modleName}ServiceImpl extends BaseServiceImpl<${item.modleName}, ${item.idType}> implements ${item.modleName}Service{
+
+	@Autowired
+	private ${item.modleName}Dao ${modelParam}Dao;
+
+	@Override
+	public BaseDao<${item.modleName}, ${item.idType}> getDAO() {
+		return ${modelParam}Dao;
+	}
+
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+ <html xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:th="http://www.thymeleaf.org" 
+    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <title>code-generator</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+  <h1>Schema list</h1>
+
+  <table>
+    
+    <tr th:each="String : ${tableSchema}">
+      <td th:text="${String}"></td><td><a th:href="@{/showschema?schemaname={schemaname}(schemaname=${String})}">点击进入该数据库</a></td>
+     
+    </tr>
+    
+ 
+  </table>
+
+ <!--  <p>
+    <a href="../home.html" th:href="@{/}">Return to home</a>
+  </p> -->
+</body>
+</html>

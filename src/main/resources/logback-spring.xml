@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/2002/xmlspec/dtd/2.10/xmlspec.dtd">
+
+<configuration scan="true" scanPeriod="30 seconds">
+    <property name="LOG_PATH" value="/mnt/diskb/das_logs"/>
+
+	<springProfile name="local">
+		<logger name="com.hexun" level="debug" additivity="true"/>
+        <appender name="logfile" class="ch.qos.logback.core.ConsoleAppender">
+			<encoder>
+				<pattern>%d{yyyy-MM-dd HH:mm:ssS} %5p [%c]:%L-%m%n</pattern>
+			</encoder>
+		</appender>
+    </springProfile>
+
+	<root level="info">
+		<appender-ref ref="logfile" />
+	</root>
+	
+</configuration>
